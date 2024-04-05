@@ -1,0 +1,24 @@
+<!-- Formulaire pour saveComptecourantBancaire -->
+
+
+  <!-- Formulaire pour saveCompteepargneBancaire -->
+  
+  <div>
+    <form [formGroup]="compteEpargneForm" (ngSubmit)="saveCompteEpargneBancaire()">
+    <input type="number" formControlName="solde" placeholder="Solde">
+    <input type="number" formControlName="Tauxinteret" placeholder="Tauxinteret">
+    <input type="number" formControlName="id" placeholder="Client ID">
+    <button type="submit">Save Compte Epargne</button>
+  </form>
+  
+
+  </div>
+  <div>
+  <form [formGroup]="compteCourantForm" (ngSubmit)="saveComptecourantBancaire()">
+    <input type="number" formControlName="solde" placeholder="Solde">
+    <input type="number" formControlName="decouvert" placeholder="Decouvert">
+    <input type="number" formControlName="id" placeholder="Client ID">
+    <button type="submit">Save Compte Courant</button>
+  </form>
+  
+</div>

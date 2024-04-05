@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card col-md-6">
+        <div class="card-header">
+
+
+        </div>
+        <div class="card-body" >
+            <form  [formGroup]="updateClientFormGroup" (ngSubmit)="updateClient()" >
+                <div class="mb-3">
+                    <label class="form-label">Firstname:</label>
+                <input type="text" formControlName="firstname" class="form-control">
+                <span *ngIf="updateClientFormGroup.controls['firstname'].touched
+                &&updateClientFormGroup.controls['firstname'].errors && updateClientFormGroup.controls['firstname'].errors!['required']">firstName required</span>
+            </div>
+                <div class="mb-3">
+                    <label class="form-label">Email:</label>
+                <input type="text" formControlName="email" class="form-control">
+                <span *ngIf="updateClientFormGroup.controls['email'].touched
+                &&updateClientFormGroup.controls['email'].errors &&updateClientFormGroup.controls['email'].errors?.['email'] ">EmailNotValid </span>
+            </div>
+            <button [disabled]="!updateClientFormGroup.valid" class="btn-btn-info">save</button>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,6 @@
+/* Ajoutez ces styles pour définir une hauteur maximale et activer le défilement automatique */
+.operation-list {
+    max-height: 300px; /* Définissez la hauteur maximale que vous souhaitez */
+    overflow-y: auto; /* Activez le défilement vertical automatique lorsque nécessaire */
+  }
+  

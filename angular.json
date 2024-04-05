@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "/Users/moha/Banking-App/node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
             ],
             "scripts": []
           },

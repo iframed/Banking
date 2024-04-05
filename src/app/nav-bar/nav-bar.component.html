@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Client
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="clients">chercherClient</a></li>
+              <li><a class="dropdown-item" routerLink="newclient">ajouterClient</a></li>
+              <li><hr class="dropdown-divider"></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="comptebancaire">Compte Bancaire</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Compte
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="newcompte">Ajouter Compte</a></li>
+              <li><a class="dropdown-item" href="#">Debiter</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Pagecompte</a></li>
+            </ul>
+          </li>
+          <li *ngIf="authService.roles.includes('ADMIN')" class="nav-item">
+            <a class="dropdown-item" routerLink="Administrator">Admin</a>
+          </li>
+          <li><a class="dropdown-item" routerLink="Dashboard">Dashboard</a></li>
+        </ul>
+        <ul *ngIf="authService.isAuthenticated==true" class="navbar">
+          <li class="btn-danger" >{{this.authService.email}}</li>
+          <li class="btn-danger">{{this.authService.roles}}</li>
+          <li>
+            <button (click)="logout()" class="btn btn-primary">LOGOUT</button>
+          </li>
+
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>

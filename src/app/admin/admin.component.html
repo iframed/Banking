@@ -1,0 +1,61 @@
+
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="card" *ngIf="user |async as Users " >
+        
+        <div class=" card-header">
+          Users
+
+        </div>
+        <div class="card-body" >
+            <div *ngIf="formGroup ">
+             
+                
+
+            
+            </div>
+            <div class="table">
+                <thead>
+                   <tr>
+                    <th>ID</th><th>Name</th><th>Email</th><th>password</th>
+                   </tr>
+                </thead>    
+                
+                <tbody>
+                    <tr *ngFor="let u of Users">
+                        <td>{{u.id}}</td>
+                        <td>{{u.firstName}}</td>
+                        <td>{{u.email}}</td>
+                        <td>{{u.password}}</td>
+                        <!--<td>{{u.roles}}</td>-->
+                        <td>
+                            <span *ngFor="let role of u.roles">{{ role }}</span>
+                          </td>
+                        <td>
+                            
+                            
+                        </td>
+                        <td>
+                            <button [routerLink]="'/admin' + u.id" class="btn btn-danger"> <i class="bi bi-arrow-clockwise"></i></button>
+                        </td>
+                        <td>
+                            <!-- Bouton pour modifier les rôles -->
+                            <button (click)="editRoles(u.id)" class="btn btn-primary">Edit Roles</button>
+
+
+
+
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </div>
+            
+            
+
+        </div>
+
+    </div>
+
+
+

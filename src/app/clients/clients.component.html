@@ -1,0 +1,60 @@
+<div class=" container">
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="card" *ngIf="Client |async as Clients " >
+        
+        <div class=" card-header">
+            Clients
+
+        </div>
+        <div class="card-body" >
+            <div *ngIf="searchformGroup ">
+               <!-- {{this.searchformGroup.value|json}}--> 
+                <form [formGroup]="searchformGroup" (ngSubmit)="searchClients()">
+                <div class="input-group">
+                    <label class="input-group-text">Keyword :</label>
+                    <input type="text" formControlName="keyword" class="form-control">
+                    <span *ngIf=""></span>
+                    <button class="btn-btn-info">
+                        <i class="bi-search">
+
+                        </i>
+                    </button>
+
+                </div>
+
+            </form>
+
+            
+            </div>
+            <div class="table">
+                <thead>
+                   <tr>
+                    <th>ID</th><th>Name</th><th>Email</th>
+                   </tr>
+                </thead>    
+                
+                <tbody>
+                    <tr *ngFor="let c of Client|async as clients">
+                        <td>{{c.id}}</td>
+                        <td>{{c.firstname}}</td>
+                        <td>{{c.emails}}</td>
+                        <td>
+                            <button (click)="suprimerClient(c)" class="btn btn-danger"><i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button [routerLink]="'/admin/clients/update/' + c.id" class="btn btn-danger"> <i class="bi bi-arrow-clockwise"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </div>
+            
+            
+
+        </div>
+
+    </div>
+
+</div>
